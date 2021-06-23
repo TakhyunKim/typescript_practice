@@ -29,4 +29,43 @@
       resolve(100);
     });
   }
+
+  // Javascript => Typescript
+  // Optional parameter
+  function printName(firstName: string, lastName?: string) { // ?를 붙이면 전달 받을 수도 있고 string type이 아닐수도있음을 의미
+    console.log(firstName);
+    console.log(lastName);
+  }
+
+  printName('stive', 'Jobs');
+  printName('Tak');
+  printName('Tak', undefined);
+
+  function printName2(firstName: string, lastName: string | undefined) { // 이렇게 작성하면 무조건 2개의 값을 적어줘야한다
+    console.log(firstName);
+    console.log(lastName);
+  }
+
+  printName2('stive', 'Jobs');
+  printName2('Tak', undefined); // <= 요런 식으로!
+  printName2('Tak', undefined);
+
+  // Default parameter
+  function printMessage(message: string = 'default message') {
+    console.log(message);
+  }
+
+  printMessage(); // default paramerter가 없다면 에러가 발생한다.
+
+  // Rest parameter => 인자의 수에 관계없이 다 더해주는 함수를 원한다. => number[]: 숫자 타입의 배열
+  function addNubmers(...numbers: number[]): number {
+    return numbers.reduce((a, b) => a + b);
+  }
+
+  console.log(addNubmers(1, 2));
+  console.log(addNubmers(1, 2, 3, 4));
+  console.log(addNubmers(1, 2, 3, 4, 5));
 }
+
+
+
