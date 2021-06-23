@@ -32,4 +32,7 @@
   takName = 'name';
   type JSON = 'json';
   const json: JSON = 'json';
+
+  type Bool = true;
+  const isCat: Bool = true;
 }
