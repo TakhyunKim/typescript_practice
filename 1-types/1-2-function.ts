@@ -65,6 +65,7 @@
   console.log(addNubmers(1, 2));
   console.log(addNubmers(1, 2, 3, 4));
   console.log(addNubmers(1, 2, 3, 4, 5));
+  // console.log(addNubmers(1, 2, 3, 4, '5')); => 에러가 발생함 문자열이 내포
 }
 
 
