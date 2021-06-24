@@ -40,6 +40,7 @@ function calculate(mode: CalculateModes, elem1: number, elem2: number): number {
 
     case 'remainder':
       return remainderValues(elem1, elem2);
+
     default:
       throw new Error('error in calculator function');
   }
