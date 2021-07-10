@@ -64,8 +64,46 @@
     }
   }
 
+  interface MilkFronther {
+    makeMilk(cup: CoffeeCup): CoffeeCup;
+  }
+
+  interface SugarProvider {
+    addSugar(cup: CoffeeCup): CoffeeCup;
+  }
+
   // 싸구려 우유 거품기
-  class CheapMilkSteamer {
+  class CheapMilkSteamer implements MilkFronther {
+    private steamMilk(): void {
+      console.log('Steaming some milk...');
+    }
+
+    makeMilk(cup: CoffeeCup): CoffeeCup {
+      this.steamMilk();
+
+      return {
+        ...cup,
+        hasMilk: true
+      };
+    }
+  }
+
+  class FancyMilkSteamer implements MilkFronther {
+    private steamMilk(): void {
+      console.log('Fancy Steaming some milk...');
+    }
+
+    makeMilk(cup: CoffeeCup): CoffeeCup {
+      this.steamMilk();
+
+      return {
+        ...cup,
+        hasMilk: true
+      };
+    }
+  }
+
+  class ColdMilkSteamer implements MilkFronther {
     private steamMilk(): void {
       console.log('Steaming some milk...');
     }
@@ -81,7 +119,7 @@
   }
 
   // 설탕 제조기
-  class AutomaticSugarMixer {
+  class AutomaticSugarMixer implements SugarProvider {
     private getSugar() {
       console.log('Getting some sugar from candy');
       return true;
@@ -101,7 +139,7 @@
     constructor(
       beans: number,
       public readonly serialNumber: string,
-      private milkFrother: CheapMilkSteamer
+      private milkFrother: MilkFronther
     ) {
       super(beans);
     }
@@ -114,7 +152,7 @@
   }
 
   class SweetCoffeeMaker extends CoffeeMachine {
-    constructor(private beans: number, private sugar: AutomaticSugarMixer) {
+    constructor(private beans: number, private sugar: SugarProvider) {
       super(beans);
     }
 
@@ -128,8 +166,8 @@
   class SweetCaffeLatteMachine extends CoffeeMachine {
     constructor(
       private beans: number,
-      private milk: CheapMilkSteamer,
-      private sugar: AutomaticSugarMixer
+      private milk: MilkFronther,
+      private sugar: SugarProvider
     ) {
       super(beans);
     }
