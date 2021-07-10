@@ -10,9 +10,9 @@
 
   type ResultState = SuccessState | NetworkErrorState;
 
-  class NetworkClient {
-    tryConnect(): ResultState {}
-  }
+  // class NetworkClient {
+  //   tryConnect(): ResultState {}
+  // }
 
   class UserService {
     constructor(private client: NetworkClient) {}
