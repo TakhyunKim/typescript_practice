@@ -48,7 +48,6 @@
 
   printName2('stive', 'Jobs');
   printName2('Tak', undefined); // <= 요런 식으로!
-  printName2('Tak', undefined);
 
   // Default parameter
   function printMessage(message: string = 'default message') {
