@@ -1,6 +1,6 @@
 const x = {};
 const y = {};
-
+Array;
 console.log(x);
 console.log(y);
 console.log(x.__proto__ === y.__proto__);
